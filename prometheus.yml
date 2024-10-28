@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'blackbox'
+    metrics_path: '/probe'
+    params:
+      module: ['http_2xx']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target__
+      - source_labels: [__param_target__]
+        target_label: instance
+        replacement: '_blackbox_http_{instance}'
+    static_configs:
+      - targets:
+        - ptsecurity.com

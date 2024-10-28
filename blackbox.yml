@@ -1,0 +1,19 @@
+targets:
+  - https://ptsecurity.com
+modules:
+  http_2xx:
+    method: GET
+    scheme: https
+    timeout: 5s
+  http_3xx:
+    method: GET
+    scheme: https
+    timeout: 5s
+  http_4xx:
+    method: GET
+    scheme: https
+    timeout: 5s
+  http_5xx:
+    method: GET
+    scheme: https
+    timeout: 5s
